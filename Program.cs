@@ -71,7 +71,7 @@ namespace Assignment10
                                     sw.WriteLine("Welcome to .net File handling");
                                     sw.Dispose();
                                     sw.Close();
-                                    Console.WriteLine("Created and text is written");
+                                    Console.WriteLine("Text Appended Successfully!!");
 
                                 }
                                 else
