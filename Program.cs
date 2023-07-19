@@ -9,6 +9,7 @@ namespace Assignment10
 {
     internal class Program
     {
+        
         static void Main(string[] args)
         {
             char Do = 'y';
@@ -30,6 +31,38 @@ namespace Assignment10
                     fname = Console.ReadLine();
                     string fpath = path + fname;
 
+                    void CreateFile()
+                    {
+                        File.Create(fpath);
+                        Console.WriteLine("File created!!");
+                    }
+
+                    void ReadFile()
+                    {
+                        string[] lines = File.ReadAllLines(fpath);
+                        foreach (string line in lines)
+                        {
+                            Console.WriteLine(line);
+                        }
+                    }
+
+                    void AppendToFile()
+                    {
+                        StreamWriter sw = File.AppendText(fpath);
+                        Console.WriteLine("Enter text to append: ");
+                        string str = Console.ReadLine();
+                        sw.WriteLine(str);
+                        sw.Dispose();
+                        sw.Close();
+                        Console.WriteLine("Text Appended Successfully!!");
+                    }
+
+                    void DeleteFile()
+                    {
+                        File.Delete(fpath);
+                        Console.WriteLine("File deleted permanently");
+                    }
+
                     switch (ch)
                     {
                         case 1:
@@ -40,61 +73,44 @@ namespace Assignment10
                                 }
                                 else
                                 {
-                                    File.Create(fpath);
-                                    Console.WriteLine("File created!!");
+                                    CreateFile();
                                 }
-                                Console.WriteLine();
                                 break;
                             }
                         case 2:
                             {
                                 if (File.Exists(fpath))
                                 {
-                                    string[] lines = File.ReadAllLines(fpath);
-                                    foreach (string line in lines)
-                                    {
-                                        Console.WriteLine(line);
-                                    }
+                                    ReadFile();
                                 }
                                 else
                                 {
                                     Console.WriteLine("File not exist");
                                 }
-                                
                                 break;
                             }
                         case 3:
                             {
                                 if (File.Exists(fpath))
                                 {
-                                    StreamWriter sw = File.AppendText(fpath);
-                                    Console.WriteLine("Enter text to append: ");
-                                    string str = Console.ReadLine();
-                                    sw.WriteLine(str);
-                                    sw.Dispose();
-                                    sw.Close();
-                                    Console.WriteLine("Text Appended Successfully!!");
-
+                                    AppendToFile();
                                 }
                                 else
                                 {
                                     Console.WriteLine("File not Exist");
                                 }
-                                Console.WriteLine();
                                 break;
                             }
                         case 4:
                             {
                                 if (File.Exists(fpath))
                                 {
-                                    File.Delete(fpath);
-                                    Console.WriteLine("File deleted permanently");
+                                    DeleteFile();
                                 }
                                 else
                                 {
                                     Console.WriteLine("File not exist");
                                 }
-                                Console.WriteLine();
                                 break;
                             }
                         default:
@@ -108,7 +124,7 @@ namespace Assignment10
                 catch (Exception ex) { Console.WriteLine("Error!! " + ex.Message); }
                 finally
                 {
-                    Console.WriteLine("Do you want to continue? ");
+                    Console.WriteLine("Do you want to continue? Enter y to continue:  ");
                     Do = char.Parse(Console.ReadLine());
                 }
             }
