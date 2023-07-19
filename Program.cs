@@ -25,7 +25,7 @@ namespace Assignment10
                     Console.WriteLine("Enter your choice: ");
                     int ch = int.Parse(Console.ReadLine());
 
-                    string path = "D:\\Mphasis\\.net\\Day8\\";
+                    string path = "D:\\";
                     string fname;
                     Console.WriteLine("Enter file name: ");
                     fname = Console.ReadLine();
