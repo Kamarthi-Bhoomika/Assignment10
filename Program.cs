@@ -68,7 +68,9 @@ namespace Assignment10
                                 if (File.Exists(fpath))
                                 {
                                     StreamWriter sw = File.AppendText(fpath);
-                                    sw.WriteLine("Welcome to .net File handling");
+                                    Console.WriteLine("Enter text to append: ");
+                                    string str = Console.ReadLine();
+                                    sw.WriteLine(str);
                                     sw.Dispose();
                                     sw.Close();
                                     Console.WriteLine("Text Appended Successfully!!");
