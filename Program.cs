@@ -26,7 +26,7 @@ namespace Assignment10
 
                     string path = "D:\\Mphasis\\.net\\Day8\\";
                     string fname;
-                    Console.WriteLine("Enter file name");
+                    Console.WriteLine("Enter file name: ");
                     fname = Console.ReadLine();
                     string fpath = path + fname;
 
@@ -76,7 +76,7 @@ namespace Assignment10
                                 }
                                 else
                                 {
-                                    Console.WriteLine("Already Exist");
+                                    Console.WriteLine("File not Exist");
                                 }
                                 Console.WriteLine();
                                 break;
@@ -90,7 +90,7 @@ namespace Assignment10
                                 }
                                 else
                                 {
-                                    Console.WriteLine("File does't exist");
+                                    Console.WriteLine("File not exist");
                                 }
                                 Console.WriteLine();
                                 break;
